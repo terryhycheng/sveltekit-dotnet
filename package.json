@@ -1,0 +1,17 @@
+{
+  "name": "svelte-kit-dotnet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "api:dev": "dotnet watch run --project api",
+    "web:dev": "cd web && yarn dev",
+    "dev": "concurrently \"yarn api:dev\" \"yarn web:dev\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.1"
+  }
+}
