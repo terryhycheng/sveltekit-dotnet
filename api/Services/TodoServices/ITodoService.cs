@@ -9,7 +9,7 @@ namespace api.Services.TodoServices
     public interface ITodoService
     {
         Task<List<Todo>> GetTodos();
-        Todo GetTodoById(int id);
+        Task<Todo> GetTodoById(int id);
         Todo CreateTodo(Todo todo);
         Todo UpdateTodoById(int id, Todo todo);
         Todo DeleteTodoById(int id);

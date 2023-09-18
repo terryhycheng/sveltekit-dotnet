@@ -21,5 +21,14 @@ namespace api.Controllers
         public async Task<ActionResult<List<Todo>>> Get() {
             return Ok(await _todoService.GetTodos());
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Todo>> Get(int id) {
+            var todo = await _todoService.GetTodoById(id);
+            if (todo == null) {
+                return NotFound();
+            }
+            return Ok(todo);
+        }
     }
 }

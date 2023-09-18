@@ -25,9 +25,16 @@ namespace api.Services.TodoServices
             throw new NotImplementedException();
         }
 
-        public Todo GetTodoById(int id)
+        public async Task<Todo?> GetTodoById(int id)
         {
-            throw new NotImplementedException();
+            var todo = todos.FirstOrDefault(todo => todo.Id == id);
+
+            if (todo == null)
+            {
+                return null;
+            }
+
+            return todo;
         }
 
         public async Task<List<Todo>> GetTodos()
