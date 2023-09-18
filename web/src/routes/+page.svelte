@@ -1,2 +1,26 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import type { PageData } from './$types';
+
+	export let data: PageData;
+</script>
+
+<h1>Todo List from .NET Core</h1>
+
+{#each data.todos as todo}
+	<div class="container">
+		<h2>{todo.task}</h2>
+		{#if todo.isCompleted}
+			<p>Completed</p>
+		{:else}
+			<p>Not Completed</p>
+		{/if}
+	</div>
+{/each}
+
+<style>
+	.container {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+</style>
